@@ -1,29 +1,58 @@
 #include <stdio.h>
+#include <stdbool.h>
+
 /**
- * Implemente a função FizzBizz conforme definida abaixo. A mesma deve receber dois números inteiros não negativos (start e end) e imprimir a partir de start (incluído) até end (excluído) seguindo a mesma lógica do FizzBuzz.
- * 
- * Função: void fizzBizz(int start, int end)
- * Input: inteiros (start < end) determinando os números de início e fim da contagem.
- * Output: utilize a função printf da biblioteca stdio.h e escreva um número ou palavra por linha (\n):
- * 
- */
-void fizzBizz(int start, int end)
-{
-    printf("\nFizzBizz::START: %d, %d\n", start, end);
+* Escreva uma função que analisa uma dada palavra ou frase, retornando se a mesma é um palíndromo ou não.
+*
+* Função: bool isPalindrome (char[] sentence, int length)
+* Input:
+* - sentence: array de caracteres em minúsculo da palavra ou frase a ser analisada.
+* - length: tamanho do array - número de caracteres
+* Output: true se a sentença é um palídromo, falso caso negativo.
+*/
+
+bool isPalindrome (char sentence[], int length) {
+ printf("\nisPalindrome::START: %s, %d\n", sentence, length);
+
+ // TODO: YOUR CODE HERE!
+ int index = 0; //Usar no loop (while)
+ int LetraDiferente = 0;
     
-    // TODO: Your code here!
-    // Ex.: printf("Fizz\n");
+ while(index < length){
+     if (sentence[index] != sentence[length - 1 - index]) //verificação de letras diferentes
+     {
+         LetraDiferente = 1; // se encontrar uma letra diferente
+         
+     } // end if
+
+     index = index + 1;
+
+ } // end while
+ if (LetraDiferente == 1) //se tiver encontrado uma letra diferente
+ {
+     printf("false");
+     printf("\nisPalindrome::END\n");
+     return false;
+     
+ } //end if
     
-    printf("\nFizzBizz::END\n");
-}
+ printf("true");
+ printf("\nisPalindrome::END\n");
+ return true;
+    
+} // end isPalindrome
 
 int main()
 {
-    printf("\n### CESAR School :: Sistemas Digitais :: Coding1 :: FizzBizz ###\n");
+ printf("\n### CESAR School :: Sistemas Digitais :: Coding1 :: Palindrome ###\n");
     
-    fizzBizz(1, 6);
-    fizzBizz(1, 16);
-    fizzBizz(1, 100);
-    
-    return 0;
+ // true cases
+ isPalindrome("ovo", 3);
+ isPalindrome("arara", 5);
+
+ // false cases
+ isPalindrome("cesar", 5);
+ isPalindrome("school", 6);
+
+ return 0;
 }
